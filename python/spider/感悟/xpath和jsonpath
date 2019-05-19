@@ -1,0 +1,85 @@
+什么是xpath
+	什么是xml
+		xml是用来存储和传输数据时使用的，xpath用来在xml中查找指定的元素，是一种路径表达式。
+	和html的不同
+		（1）html用来显示数据，xml是用来传输数据的
+		（2）html标签是固定的，xml标签是自定义的
+	常用的了路径表达式有
+		//：不考虑位置，全文的查找
+		./:从当前节点开始往下查找
+		../:从当前节点的父节点开始查找
+		@:选取属性
+
+		实例
+		/bookstore/book 选取bookstore下面所有直接子节点book
+		//book          选区所有book
+		bookstore//book 选取bookstore下面的所有book
+		/bookstore/book[1] 选取bookstore下面的第一个book
+		/bookstore/book[last()]选取bookstore下面的最后一个book
+		/bookstore/book[position()<3] 选取bookstore下面的前两个book
+		//title[@lang] 选取所有带lang属性的title
+		//title[@lang='eng'] 选取所有带lang属性且值为eng的title节点
+		/bookstore/book[price>35.00]选取bookstore元素的所有book元素，且其中的 price 元素的值须大于 35.00。
+		* 	通配符，匹配所有的节点
+		@*	通配符，匹配所有的属性
+		//title | //price	选取文档中的所有 title 和 price 元素。
+	属性定位
+		//input[@id='kw']
+	层级定位
+	索引定位
+		//div[@id="head"]/div/div[2]/a[@class='toindex']
+		【注】索引从1开始
+		//div[@id="head"]//a[@class="toindex"]
+		【注】双斜杠代表下面的所有a节点，不管位置
+	逻辑运算
+		and or not
+	模糊匹配
+		contains
+		//input[contains(@class,"s_i")]
+		选取所有的input，有class属性并且属性中带有s_i节点
+		starts_with
+		//input[start_with(@class,"s")]
+		选取所有的input，有class属性，并且属性以s开头
+	取文本
+		//div[@id="u1"]/a[5]/text()
+		//div[@id="u1"]//text()
+		获取节点里面不带标签的所有内容
+
+		直接获取所有内容并且拼接一块
+		ret = tree.xpath('//div[@class="song"]')
+		string = ret[0].xpath('string(.)')
+		print(string.replace('\n','').replace('\t',''))
+	取属性
+		//div[@id="u1"]/a[5]/@href
+代码中如何使用
+	from lxml import etree
+	将html文档转化为一个对象，让后调用对象的方法去查找
+	（1）本地文件
+		tree = etree.parse(文件名)
+	（2）网络文件
+		tree = etree.HTML(网页字符串)
+
+	ret = tree.xpath(路径表达式)
+	【注】ret是一个列表
+什么是jsonpath
+	jsonpath：用来解析json数据使用的
+	python处理python数据时用到的函数
+		import json
+		json.dumps():将字典或者列表转化为json格式的字符串
+		json.loads()：将json格式转化为python对象
+		json.dump()：将字典或者列表转化为json格式字符串并且写到文件中
+		json.load(open('文件名','r',encoding='utf8'))：从文件中读取json格式字符串，转化为python对象
+	需要安装：
+		pip install lxml
+		pip install jsonpath
+	jsonpath和xpath的对比
+		/			$		根元素
+		.			@		当前元素
+		/			.		子元素
+		//			..		任意位置查找
+		*			*		通配符
+		[]			?()		过滤提取
+		xpath下标从1开始
+		jsonpath下标从0开始
+详细信息见博客
+	http://www.cnblogs.com/aoyihuashao/p/8665873.html

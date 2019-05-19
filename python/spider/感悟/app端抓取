@@ -1,0 +1,36 @@
+配置环境
+    夜神模拟器
+    fiddler
+    设置wifi代理
+    ip：端口
+    appinum
+    docker
+    下载想要爬取的app
+    代理在抓包时开就行
+    跟web端大致相同
+自动化爬取（跟selenium类似的配置）
+    jdk开发环境配置
+    安装sdk开发工具包
+        adb工具：安卓开发和测试的工具
+        使用方法：
+            adb start-server 监听5037窗口
+            安卓模拟器要打开开发者模式打开usb调试
+            adb devices 看连接了多少安卓机
+            adb -s 设备名称 shell 进入底层操作系统
+            adb -s 设备名称 install 安装包目录 用命令行安装apk
+            adb -s 设备名称 uninstall 包名  用命令行卸载apk
+            adb connect 127.0.0.1:62001 连接夜神模拟器
+            adb shell pm list package  查看已安装的包名
+            adb push 文件目录  把文件从pc写入到设备
+            adb pull 文件目录  把文件从设备拿到pc
+            adb shell screencap 目录  截图
+        uiautomator工具：用来测试的，点击控件元素，查看结果是否符合预期
+        appium工具：开源自动化测试框架可用于原生混合和移动端的web应用测试
+            配置inspect
+                desired capability
+            获取apk包名和activity名
+                adb shell
+                logcat | grep cmp=
+                打开模拟器，打开软件，可以看到apk包名和activity名
+
+

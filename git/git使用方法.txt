@@ -1,0 +1,53 @@
+git
+	一种分布式版本控制程序
+使用前配置
+		git global user.name "用户名"
+		git global user.email 邮箱
+	查看配置
+		git config --list
+	新建一个文件夹
+		cmd到该文件夹下执行git init初始化工作区域
+基本工作流程
+		在文件目录中添加修改文件
+		将需要进行版本控制的文件放入暂存区域
+		将暂存区域的文件提交到git仓库
+		用git status查看现在的状态有三种情况
+		modified（已修改）
+		staged（已暂存）
+		committed（已提交）
+	git add 文件名
+	git commit -m ”此次提交做了哪些修改“
+	add相当于先放到了暂存区域
+	commit再从暂存区域提交到git仓库
+	git log 查看提交历史
+	git reset --mixed HEAD~  移动HEAD的指向，将其指向上一个快照并将HEAD移动后指向的快照回滚到暂存区域【默认执行这个】
+	git reset --soft HEAD~  移动HEAD的指向，将其指向上一个快照
+	git reset --mixed HEAD~  移动HEAD的指向，将其指向上一个快照并将HEAD移动后指向的快照回滚到暂存区域而且将暂存区域的文件还原到工作目录
+	HEAD后面多少个~回滚多少层级
+	git log可以查看版本快照的ID号
+	git log --pretty =oneline同上
+	git reset 版本快照的部分ID号			回滚指定快照双向的
+	git reset 版本快照的部分ID号 文件名/路径  		回滚个别文件双向的
+	git show id号           						可以查看某个版本提交的代码
+
+
+
+
+
+
+
+
+
+git三个重要区域
+工作区域				暂存区域						Git仓库
+（本地工作区域）		（相当于一个桥暂时保存文件）	（最终保存于git的文件区域）
+
+
+
+
+
+				add                         commit
+
+工作区域						暂存区域							Git仓库
+
+				checkout					reset

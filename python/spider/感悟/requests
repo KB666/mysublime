@@ -1,0 +1,33 @@
+安装：
+    pip install requests
+    http://cn.python-requests.org/zh_CN/latest/
+作用：
+    相当于urllib的位置
+    但相对于urllib更简洁
+get请求：
+定制头部
+    requests.get(url,headers = headers,params = data)
+post请求：
+    formdata是个原生字典即可
+    requests.post(url = url,headers = headers,data = formdata)
+ajax的get，post
+    和普通的一样
+代理
+    r = requesta.get(url,headers = headers,params = data,proxies = proxies)
+    proxies格式：
+        proxies = {
+        'http':'http://121.41.171.223:3128'
+        }
+cookie
+    用会话实现
+    s = requests.Session()
+    后边所有操作用s实现
+    s.get    s.post
+相应对象：
+    r.text      字符串形式查看响应
+    r.content   字节类型查看响应
+    r.encoding  查看或设置编码类型
+    r.status_code查看状态码
+    r.headers   查看响应头部
+    r.url       查看所请求的url
+    r.json()    查看json格式数据

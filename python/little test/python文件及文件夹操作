@@ -1,0 +1,41 @@
+python文件及文件夹操作
+    windows中路径必须为反斜杠
+    os.path.join('','','')可以连接文件路径
+    os.getcwd()函数可以获得当前文件夹
+    os.chdir()更改当前工作路径
+    os.makedirs()创建系文件夹
+    os.path.getsize()返回参数文件的字节数
+    os.path.exits()文件或文件夹是否存在
+    os.path.isfile()是否是一个文件
+    os.path.isdir()是否是一个文件夹
+    open('','w')写模式
+    open('','a')添加模式
+shelve模块
+    shelffile = open('')
+    shelffile.close()
+pprint模块：漂亮打印
+    pprint.pprint()
+    pprint.pformate()
+shutil模块
+    可以复制删除移动重命名文件
+    shutil.copy(a,b)复制一个文件a到b 并返回新位置的字符串
+    shutil.copytree(a,b)复制整个文件夹a到b 并返回新位置的字符串
+    shutil.move(a,b)移动文件夹从a到b 并返回新位置的字符串
+    若有原文件会覆盖原文件所以移动需谨慎，文件夹必须存在
+    os.unlink(path)删除path处的文件夹
+    os.rmdir(path)删除path处的文件夹文件夹必须为空
+    shutil.rmtree(path)删除path处的文件夹，全部删除
+send2trash模块 安全的删除
+    send2trash.send2trash(path)放入回收站，但不会释放磁盘空间
+遍历目录树
+    for foldername, subfolders, filenames in os.walk(''):
+zipfile模块
+    zipfile = zipfile.ZipFile(path)创建zip对象
+    zipfile.namelist（）返回zip文件的所有文件和文件夹的字符列表
+    zipfile.extractall(path)将文件解压放入path路径返回最后路径的绝对路径
+    创建和添加到zip文件
+    zipfile = zipfile.ZipFile(path，'w')
+    zipfile.write（'path',压缩类型参数（缺省值为compress_type = zipfile.ZIP_DEFLATED））
+    
+
+

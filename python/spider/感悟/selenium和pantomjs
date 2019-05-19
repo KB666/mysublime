@@ -1,0 +1,31 @@
+selenium是什么？
+	是一个python的第三方库，对外提供接口可以操作你的浏览器，让后让浏览器完成自动化的操作
+使用selenium
+	安装：pip install selenium
+	想要操作浏览器先要有浏览器驱动
+	http://chromedriver.storage.googleapis.com/index.html下载地址
+	http://blog.csdn.net/huilan_same/article/details/51896672兼容表对照
+	代码操作
+	find_element_by_id				根据id找节点
+	find_elements_by_name			根据name找
+	find_elements_by_xpath			根据xpath查找
+	find_elements_by_tag_name		根据标签名找
+	find_elements_by_class_name 	根据class名字查找
+	find_elements_by_css_selector	根据选择器查找
+	find_elements_by_link_text		根据链接内容查找
+	get\send_keys\click       等方法
+phantomjs
+	是一款无界面的浏览器
+	selenim+无界面浏览器   是爬虫解决的终极方案
+	可以完成很多js加载操作
+	下拉滚当条
+	获取网页代码：broswer.page_source
+Headless Chrome
+	无头谷歌浏览器，无界面谷歌浏览器
+	因为phantomjs现在不维护了
+	windows版本60+以上支持这种模式
+	简单代码：
+		from selenium.webdriver.chrome.options import Options
+		chrome_options = Options()
+		chrome_options.add_argument('--headless')
+		chrome_options.add_argument('--disadle-gpu')

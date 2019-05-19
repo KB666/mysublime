@@ -1,0 +1,5 @@
+(0)string.replace('\n','').replace('\t','')
+	将换行符替换为空，可多个replace连用
+(1)string.strip('()')
+	去掉开头和末尾的“（）”有就去掉
+(2)列表可以直接相加

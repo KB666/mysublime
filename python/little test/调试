@@ -1,0 +1,3 @@
+raise Expection('This is the err message .')
+通常和try except连用，得到友好出错信息
+
