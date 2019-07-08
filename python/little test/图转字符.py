@@ -12,5 +12,5 @@ for row in range(height):
         gray = out.getpixel((col, row))
         texts += asciis[int(gray / 255 * 8)]
     texts += '\n'
-with open('C:/Users/DELL/Desktop/pic.txt', 'w') as file:
+with open('C:\\Users\\15823\\OneDrive\\桌面pic.txt', 'w') as file:
     file.write(texts)

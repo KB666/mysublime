@@ -12,7 +12,7 @@ import time
 
 
 def handle_request(url, page=None):
-        # 拼接出来指定的url
+    # 拼接出来指定的url
     if page != None:
         url = url + str(page) + '.html'
     headers = {
@@ -23,7 +23,7 @@ def handle_request(url, page=None):
 
 
 def get_text(href):
-        # 调用函数构建请求对象
+    # 调用函数构建请求对象
     request = handle_request(href)
     # 发送请求获取响应
     content = urllib.request.urlopen(request).read().decode()
